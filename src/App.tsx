@@ -1,3 +1,4 @@
+import { SwapProvider } from './contexts/swap_context';
 import { ThemeProvider } from './contexts/theme_context';
 import { WalletProvider } from './contexts/wallet_context';
 import Home from './pages/home';
@@ -5,7 +6,9 @@ import Home from './pages/home';
 const App = () => (
   <ThemeProvider>
     <WalletProvider>
-      <Home />
+      <SwapProvider>
+        <Home />
+      </SwapProvider>
     </WalletProvider>
   </ThemeProvider>
 );

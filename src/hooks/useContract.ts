@@ -2,7 +2,10 @@ import { useMemo } from 'react';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Contract } from '@ethersproject/contracts';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { BarToken__factory, Exchange__factory, FooToken__factory } from 'web3-frontend-challenge';
 
+import { CONTRACT_ADDRESSES } from '../constants/contracts';
 import { getContract } from '../utils';
 import useActiveWeb3React from './useActiveWeb3React';
 
@@ -30,4 +33,16 @@ export function useContract<T extends Contract = Contract>(
       return null;
     }
   }, [addressOrAddressMap, ABI, library, chainId, withSignerIfPossible, account]) as T;
+}
+
+export function useFooTokenContract(withSignerIfPossible?: boolean): Contract | null {
+  return useContract(CONTRACT_ADDRESSES.FooToken, FooToken__factory.abi, withSignerIfPossible);
+}
+
+export function useBarTokenContract(withSignerIfPossible?: boolean): Contract | null {
+  return useContract(CONTRACT_ADDRESSES.BarToken, BarToken__factory.abi, withSignerIfPossible);
+}
+
+export function useExchangeContract(withSignerIfPossible?: boolean): Contract | null {
+  return useContract(CONTRACT_ADDRESSES.Exchange, Exchange__factory.abi, withSignerIfPossible);
 }

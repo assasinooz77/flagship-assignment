@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import styled from 'styled-components';
 
 import Header from '../components/header';
+import Swap from './swap';
 
 const Container = styled.div`
   position: relative;
@@ -13,17 +14,10 @@ const Container = styled.div`
   min-height: 100vh;
 `;
 
-const Content = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-
 const Home = () => (
   <Container>
     <Header />
-    <Content>Home</Content>
+    <Swap />
     <ToastContainer />
   </Container>
 );
